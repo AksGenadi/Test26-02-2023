@@ -1,12 +1,14 @@
 package com.company.controllers;
 
 import com.company.beans.Employee;
+import com.company.exceptions.EmployeeException;
 import com.company.repo.EmployeeRepository;
 import com.company.repo.JobRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
+import java.util.Optional;
 
 @RestController
 @RequestMapping("/company")
@@ -35,7 +37,10 @@ public class CompanyController {
 
     @GetMapping("/employees/{id}")
     public Employee getEmployee(@PathVariable long id){
-        return employeeRepository.findById(id).get();
+        Optional<Employee> optional = employeeRepository.findById(id);
+        if (optional.isEmpty())
+            throw new EmployeeException("No employee with id " + id + " was found ");
+        return optional.get();
     }
 
     @GetMapping("/employees/byname/{name}")
