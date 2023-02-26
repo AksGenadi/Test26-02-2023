@@ -1,0 +1,19 @@
+POST http://localhost:8080/company/employees
+
+{
+"name":"John Black",
+"salary":10000.0,
+"jobs":[
+{
+"description":"Programmer",
+"endDate": "2022-01-01"
+},
+{
+"description":"Team Leader",
+"endDate": "2023-06-01"
+}
+]
+}
+
+GET http://localhost:8080/company/employees
+

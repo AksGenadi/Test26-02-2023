@@ -8,7 +8,8 @@ import java.sql.Date;
 
 @Entity
 public class Job {
-	
+	@Id
+	@GeneratedValue
 	private long id;
 	private String description;
 	private Date endDate;
