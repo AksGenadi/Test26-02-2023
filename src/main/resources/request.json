@@ -15,5 +15,13 @@ POST http://localhost:8080/company/employees
 ]
 }
 
+#Get All Employees
 GET http://localhost:8080/company/employees
+
+#Get Employee by id
+GET http://localhost:8080/company/employees/2
+
+#Get Employee by name
+GET http://localhost:8080/company/employees/byname/John
+
 
